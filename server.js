@@ -1,15 +1,19 @@
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import dotenv from 'dotenv';
 import generateHandler from './api/generate.js';
+
+// Load variables from .env file (provided by Render's Secret Files)
+dotenv.config();
 
 // --- DIAGNOSTIC LOG ---
 // This will run the moment the server starts on Render.
 // Check your Render logs for one of these two messages.
 if (process.env.API_KEY) {
-    console.log("Server starting: API_KEY environment variable was found.");
+    console.log("Server starting: API_KEY loaded successfully from Secret File (.env).");
 } else {
-    console.error("CRITICAL STARTUP ERROR: API_KEY environment variable was NOT FOUND. Please check your Environment Variables in the Render dashboard.");
+    console.error("CRITICAL STARTUP ERROR: API_KEY was NOT FOUND. Please ensure you have created a 'Secret File' in your Render dashboard with the filename '.env' and the content 'API_KEY=your_actual_key'.");
 }
 // --------------------
 

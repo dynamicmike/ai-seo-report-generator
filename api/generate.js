@@ -2,10 +2,15 @@
 // It will be located in the 'api' directory.
 
 import { GoogleGenAI } from "@google/genai";
+import dotenv from 'dotenv';
 
-// IMPORTANT: The API key is now securely accessed from environment variables on the server.
+// Load variables from .env file (provided by Render's Secret Files)
+dotenv.config();
+
+// IMPORTANT: The API key is now securely accessed from the .env file.
 if (!process.env.API_KEY) {
-    throw new Error("API_KEY environment variable not set");
+    // This error will now only be thrown if the Secret File is missing or misconfigured.
+    throw new Error("API_KEY environment variable not set. Check your .env Secret File on Render.");
 }
 
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
