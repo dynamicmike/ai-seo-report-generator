@@ -1,0 +1,24 @@
+# render.yaml
+# This file configures the application as a Web Service on Render.
+
+services:
+  # This defines your Node.js Express server.
+  - type: web
+    name: ai-seo-report-generator
+    # Use the 'node' environment
+    env: node
+    # On Render, the free plan may sleep after inactivity. Consider a paid plan for production apps.
+    plan: free
+    # Define the build and start commands from your package.json
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    # Health check to ensure the service is running
+    healthCheckPath: /
+    # Environment variables section
+    envVars:
+      - key: NODE_VERSION # Optional but recommended: specify a Node version
+        value: 20
+      - key: API_KEY
+        # This tells Render to get the value from the dashboard, not from this file.
+        # It ensures your secret key is kept secure.
+        sync: false
