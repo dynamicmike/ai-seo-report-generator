@@ -2,7 +2,7 @@
   "name": "ai-seo-report-generator",
   "version": "1.0.0",
   "private": true,
-  "description": "An intelligent web application that analyzes a given website URL and generates a comprehensive SEO report.",
+  "description": "An AI-powered SEO analysis tool that generates comprehensive reports for any given website URL. Deploys as a Static Site on Render.",
   "dependencies": {
     "@google/genai": "^1.21.0"
   }
