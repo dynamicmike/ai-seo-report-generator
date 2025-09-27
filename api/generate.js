@@ -1,4 +1,3 @@
-
 // This is a serverless function, designed to be deployed on a platform like Render or Vercel.
 // It will be located in the 'api' directory.
 
@@ -13,21 +12,6 @@ const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 // This function handles incoming requests.
 export default async function handler(req, res) {
-  // Set CORS headers to allow requests from any origin (e.g., your GHL page)
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-  );
-
-  // Handle preflight requests for CORS
-  if (req.method === 'OPTIONS') {
-    res.status(200).end();
-    return;
-  }
-  
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
     return res.status(405).end('Method Not Allowed');
