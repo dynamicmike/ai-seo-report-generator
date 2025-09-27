@@ -3,6 +3,16 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import generateHandler from './api/generate.js';
 
+// --- DIAGNOSTIC LOG ---
+// This will run the moment the server starts on Render.
+// Check your Render logs for one of these two messages.
+if (process.env.API_KEY) {
+    console.log("Server starting: API_KEY environment variable was found.");
+} else {
+    console.error("CRITICAL STARTUP ERROR: API_KEY environment variable was NOT FOUND. Please check your Environment Variables in the Render dashboard.");
+}
+// --------------------
+
 const app = express();
 const port = process.env.PORT || 10000;
 
