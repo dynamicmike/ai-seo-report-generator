@@ -4,10 +4,6 @@
   "private": true,
   "description": "An intelligent web application that analyzes a given website URL and generates a comprehensive SEO report.",
   "dependencies": {
-    "@google/genai": "^1.21.0",
-    "serve": "^14.2.3"
-  },
-  "scripts": {
-    "start": "serve -s . -c serve.json"
+    "@google/genai": "^1.21.0"
   }
 }
