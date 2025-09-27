@@ -2,8 +2,12 @@
   "name": "ai-seo-report-generator",
   "version": "1.0.0",
   "private": true,
-  "description": "An AI-powered SEO analysis tool that generates comprehensive reports for any given website URL. Deploys as a Static Site on Render.",
+  "description": "An AI-powered SEO analysis tool that generates comprehensive reports for any given website URL. Deploys as a Web Service on Render.",
   "dependencies": {
-    "@google/genai": "^1.21.0"
+    "@google/genai": "^1.21.0",
+    "serve": "^14.2.3"
+  },
+  "scripts": {
+    "start": "serve -s . -c serve.json"
   }
 }
