@@ -8,6 +8,6 @@
     "serve": "^14.2.3"
   },
   "scripts": {
-    "start": "serve -s ."
+    "start": "serve -s . -c serve.json"
   }
 }
